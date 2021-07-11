@@ -1,25 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import CTable from './Component/CTable';
+import React, { Component } from 'react';
+import { getAllData } from './Helper/ActionGlobal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edi <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      allData: false,
+    }
+  }
+
+  componentDidMount() {
+    this._handlerGetAllData();
+  }
+
+  async _handlerGetAllData() {
+    const readAllData = await getAllData();
+    this.setState({
+      listAllData: readAllData.data
+    });
+    console.log("CTable@_handlerGetAllData", readAllData.data);
+  }
+
+  render() {
+    const { listAllData } = this.state;
+
+    return (
+      <div className="App">
+        <h2> PT Nutech Programing Test</h2>
+        <CTable
+          listAllData={listAllData}
+        />
+      </div>
+    );
+  }
 }
-
-export default App;
