@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-nutech/static/css/main.a617e044.chunk.css",
-    "main.js": "/react-nutech/static/js/main.2e8c7bdc.chunk.js",
-    "main.js.map": "/react-nutech/static/js/main.2e8c7bdc.chunk.js.map",
+    "main.js": "/react-nutech/static/js/main.b4d55d0f.chunk.js",
+    "main.js.map": "/react-nutech/static/js/main.b4d55d0f.chunk.js.map",
     "runtime-main.js": "/react-nutech/static/js/runtime-main.1da34289.js",
     "runtime-main.js.map": "/react-nutech/static/js/runtime-main.1da34289.js.map",
     "static/js/2.6ee418e4.chunk.js": "/react-nutech/static/js/2.6ee418e4.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.1da34289.js",
     "static/js/2.6ee418e4.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.2e8c7bdc.chunk.js"
+    "static/js/main.b4d55d0f.chunk.js"
   ]
 }
