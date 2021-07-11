@@ -19,9 +19,9 @@ export default class App extends Component {
   async _handlerGetAllData() {
     const readAllData = await getAllData();
     this.setState({
-      listAllData: readAllData.data
+      listAllData: readAllData.data.data
     });
-    console.log("CTable@_handlerGetAllData", readAllData.data);
+    console.log("CTable@_handlerGetAllData", readAllData.data.data);
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <h2> PT Nutech Programing Test</h2>
+        <h2> PT Nutech Programing Test Rahmat Saputra</h2>
         <CTable
           listAllData={listAllData}
         />

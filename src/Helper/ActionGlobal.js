@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const getAllData = async ( fullName, email, subject, description, customerName, attachmentToken) => {
-   const baseUrl = "https://jsonplaceholder.typicode.com"
+   const baseUrl = "https://staging.rahmatsaputra.my.id"
    try {
    //   const config = {
    //     headers: {
@@ -29,10 +29,11 @@ export const getAllData = async ( fullName, email, subject, description, custome
    //     }
    //   };
 
-     const url = baseUrl + "/posts";
+     const url = baseUrl + "/v0/nutech/product";
      const result = await axios.get(url);
+     //   return await AxiosAdapter.post(url, body, config);
      return result;
-   //   return await AxiosAdapter.post(url, body, config);
+
    } catch (error) {
      console.log('ActionGlobal.web@postTicketZendeskWidget', error.message);
      return false;

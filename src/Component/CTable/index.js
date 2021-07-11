@@ -1,6 +1,5 @@
 import MaterialTable from 'material-table';
 import React, { Component } from 'react';
-import { getAllData } from '../../Helper/ActionGlobal';
 
 export default class CTable extends Component {
    constructor(props) {
@@ -14,23 +13,26 @@ export default class CTable extends Component {
    render() {
 
       const columns = [
+         // {
+         //    title: 'ID',
+         //    field: 'id',
+         //    editable: false
+         // },
          {
-            title: 'ID',
-            field: 'id',
-            editable: false
+            title: 'Product Name',
+            field: 'product_name'
          },
          {
-            title: 'UserID',
-            field: 'userId',
-            editable: false
+            title: 'Purchase Price',
+            field: 'purchase_price'
          },
          {
-            title: 'Title',
-            field: 'title'
+            title: 'Selling Price',
+            field: 'selling_price'
          },
          {
-            title: 'Body',
-            field: 'body'
+            title: 'Stocl',
+            field: 'stock'
          }
       ];
       const { page } = this.state;
@@ -46,7 +48,6 @@ export default class CTable extends Component {
                   search: true,
                   paging: true,
                   filtering: false,
-                  exportButton: true,
                   actionsColumnIndex: -1,
                   addRowPosition: 'first'
                }}
@@ -57,13 +58,15 @@ export default class CTable extends Component {
                         ...this.state,
                         page
                      })
-                  }}
+                  }
+               }
                editable={{
                   onRowAdd: (newRow) => new Promise((resolve, reject) => {
                      const updatedRows = [
                         ...listAllData,
                         newRow
                      ];
+                     alert(`name: , surname:`);
                      setTimeout(() => {
                         this.setState({
                            allData: updatedRows
