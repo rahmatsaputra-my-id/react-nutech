@@ -1,23 +1,31 @@
 {
   "files": {
     "main.css": "/react-nutech/static/css/main.a617e044.chunk.css",
-    "main.js": "/react-nutech/static/js/main.b4d55d0f.chunk.js",
-    "main.js.map": "/react-nutech/static/js/main.b4d55d0f.chunk.js.map",
-    "runtime-main.js": "/react-nutech/static/js/runtime-main.1da34289.js",
-    "runtime-main.js.map": "/react-nutech/static/js/runtime-main.1da34289.js.map",
-    "static/js/2.6ee418e4.chunk.js": "/react-nutech/static/js/2.6ee418e4.chunk.js",
-    "static/js/2.6ee418e4.chunk.js.map": "/react-nutech/static/js/2.6ee418e4.chunk.js.map",
-    "static/js/3.e7507f55.chunk.js": "/react-nutech/static/js/3.e7507f55.chunk.js",
-    "static/js/3.e7507f55.chunk.js.map": "/react-nutech/static/js/3.e7507f55.chunk.js.map",
+    "main.js": "/react-nutech/static/js/main.0c5cf359.chunk.js",
+    "main.js.map": "/react-nutech/static/js/main.0c5cf359.chunk.js.map",
+    "runtime-main.js": "/react-nutech/static/js/runtime-main.17b7979f.js",
+    "runtime-main.js.map": "/react-nutech/static/js/runtime-main.17b7979f.js.map",
+    "static/js/2.fccc4d3b.chunk.js": "/react-nutech/static/js/2.fccc4d3b.chunk.js",
+    "static/js/2.fccc4d3b.chunk.js.map": "/react-nutech/static/js/2.fccc4d3b.chunk.js.map",
+    "static/js/3.0bd73618.chunk.js": "/react-nutech/static/js/3.0bd73618.chunk.js",
+    "static/js/3.0bd73618.chunk.js.map": "/react-nutech/static/js/3.0bd73618.chunk.js.map",
+    "static/js/4.d95c712d.chunk.js": "/react-nutech/static/js/4.d95c712d.chunk.js",
+    "static/js/4.d95c712d.chunk.js.map": "/react-nutech/static/js/4.d95c712d.chunk.js.map",
+    "static/js/5.5d806908.chunk.js": "/react-nutech/static/js/5.5d806908.chunk.js",
+    "static/js/5.5d806908.chunk.js.map": "/react-nutech/static/js/5.5d806908.chunk.js.map",
+    "static/js/6.307675ec.chunk.js": "/react-nutech/static/js/6.307675ec.chunk.js",
+    "static/js/6.307675ec.chunk.js.map": "/react-nutech/static/js/6.307675ec.chunk.js.map",
     "index.html": "/react-nutech/index.html",
     "static/css/main.a617e044.chunk.css.map": "/react-nutech/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.6ee418e4.chunk.js.LICENSE.txt": "/react-nutech/static/js/2.6ee418e4.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/react-nutech/static/media/logo.6ce24c58.svg"
+    "static/js/2.fccc4d3b.chunk.js.LICENSE.txt": "/react-nutech/static/js/2.fccc4d3b.chunk.js.LICENSE.txt",
+    "static/js/3.0bd73618.chunk.js.LICENSE.txt": "/react-nutech/static/js/3.0bd73618.chunk.js.LICENSE.txt",
+    "static/js/4.d95c712d.chunk.js.LICENSE.txt": "/react-nutech/static/js/4.d95c712d.chunk.js.LICENSE.txt",
+    "static/js/5.5d806908.chunk.js.LICENSE.txt": "/react-nutech/static/js/5.5d806908.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1da34289.js",
-    "static/js/2.6ee418e4.chunk.js",
+    "static/js/runtime-main.17b7979f.js",
+    "static/js/3.0bd73618.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.b4d55d0f.chunk.js"
+    "static/js/main.0c5cf359.chunk.js"
   ]
 }
