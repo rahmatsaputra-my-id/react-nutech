@@ -58,35 +58,45 @@ export default class CTable extends Component {
                         page
                      })
                   }}
-            editable={{
-               onRowAdd: (newRow) => new Promise((resolve, reject) => {
-                  const updateRows = [
-                     ...listAllData,
-                     newRow
-                  ];
-                  setTimeout(() => {
-                     this.setState({
-                        allData: updateRows
-                     })
-                     resolve();
-                  }, 500);
-                  console.log("onRowAdd", newRow);
-               }),
-               onRowDelete: selectedRow => new Promise((resolve, reject) => {
-                  const index = selectedRow.tableData.id;
-                  const updateRows = [
-                     ...listAllData
-                  ];
-                  updateRows.splice(index, 1)
-                  setTimeout(() => {
-                     this.setState({
-                        allData: updateRows
-                     })
-                     resolve();
-                  }, 500);
-                  console.log("onRowDelete", updateRows);
-               })
-            }}
+               editable={{
+                  onRowAdd: (newRow) => new Promise((resolve, reject) => {
+                     const updatedRows = [
+                        ...listAllData,
+                        newRow
+                     ];
+                     setTimeout(() => {
+                        this.setState({
+                           allData: updatedRows
+                        })
+                        resolve();
+                     }, 500);
+                     console.log("onRowAdd", newRow);
+                  }),
+                  onRowDelete: selectedRow => new Promise((resolve, reject) => {
+                     const index = selectedRow.tableData.id;
+                     const updatedRows = [...listAllData];
+                     updatedRows.splice(index, 1)
+                     setTimeout(() => {
+                        this.setState({
+                           allData: updatedRows
+                        })
+                        resolve();
+                     }, 500);
+                     console.log("onRowDelete", updatedRows);
+                  }),
+                  onRowUpdate: (updatedRow, oldRow) => new Promise((resolve, reject) => {
+                     const index = oldRow.tableData.id;
+                     const updatedRows = [...listAllData];
+                     updatedRows[index] = updatedRow
+                     setTimeout(() => {
+                        this.setState({
+                           allData: updatedRows
+                        })
+                        resolve();
+                     }, 500);
+                     console.log("onRowUpdate", updatedRows);
+                  })
+               }}
             />
          </div >
       );
