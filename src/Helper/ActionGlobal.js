@@ -1,44 +1,44 @@
 import axios from "axios";
 
 
-export const getAllData = async ( fullName, email, subject, description, customerName, attachmentToken) => {
+export const getAllData = async (fullName, email, subject, description, customerName, attachmentToken) => {
    const baseUrl = "https://staging.rahmatsaputra.my.id"
    try {
-   //   const config = {
-   //     headers: {
-   //       "Authorization": "Bearer " + actZendesk
-   //     },
-   //   };
- 
-   //   const body = {
-   //     ticket: {
-   //       ticket_form_id: "360003061114" ,
-   //       subject: subject,
-   //       comment: {
-   //         body: description,
-   //         uploads: attachmentToken
-   //       },
-   //       custom_fields: 
-   //         [
-   //           { id: 360036659793, value: fullName },
-   //           { id: 360036659813, value: email },
-   //           { id: 360036659793, value: customerName }
-   //         ]
-   //       ,
-   //       collaborators: [email, { name: fullName, email: email }]
-   //     }
-   //   };
+      //   const config = {
+      //     headers: {
+      //       "Authorization": "Bearer " + actZendesk
+      //     },
+      //   };
 
-     const url = baseUrl + "/v0/nutech/product";
-     const result = await axios.get(url);
-     //   return await AxiosAdapter.post(url, body, config);
-     return result;
+      //   const body = {
+      //     ticket: {
+      //       ticket_form_id: "360003061114" ,
+      //       subject: subject,
+      //       comment: {
+      //         body: description,
+      //         uploads: attachmentToken
+      //       },
+      //       custom_fields: 
+      //         [
+      //           { id: 360036659793, value: fullName },
+      //           { id: 360036659813, value: email },
+      //           { id: 360036659793, value: customerName }
+      //         ]
+      //       ,
+      //       collaborators: [email, { name: fullName, email: email }]
+      //     }
+      //   };
+
+      const url = baseUrl + "/v0/nutech/product";
+      const result = await axios.get(url);
+      //   return await AxiosAdapter.post(url, body, config);
+      return result;
 
    } catch (error) {
-     console.log('ActionGlobal.web@postTicketZendeskWidget', error.message);
-     return false;
+      console.log('ActionGlobal.web@postTicketZendeskWidget', error.message);
+      return false;
    }
- };
+};
 
 //  export const getDataById = async ( fullName, email, subject, description, customerName, attachmentToken) => {
 //    try {
@@ -47,7 +47,7 @@ export const getAllData = async ( fullName, email, subject, description, custome
 //          "Authorization": "Bearer " + actZendesk
 //        },
 //      };
- 
+
 //      const body = {
 //        ticket: {
 //          ticket_form_id: "360003061114" ,
@@ -81,7 +81,7 @@ export const getAllData = async ( fullName, email, subject, description, custome
 //          "Authorization": "Bearer " + actZendesk
 //        },
 //      };
- 
+
 //      const body = {
 //        ticket: {
 //          ticket_form_id: "360003061114" ,
@@ -115,7 +115,7 @@ export const getAllData = async ( fullName, email, subject, description, custome
 //          "Authorization": "Bearer " + actZendesk
 //        },
 //      };
- 
+
 //      const body = {
 //        ticket: {
 //          ticket_form_id: "360003061114" ,

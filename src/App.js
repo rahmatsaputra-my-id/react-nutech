@@ -4,36 +4,39 @@ import React, { Component } from 'react';
 import { getAllData } from './Helper/ActionGlobal';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+   constructor(props) {
+      super(props);
 
-    this.state = {
-      allData: false,
-    }
-  }
+      this.state = {
+         allData: false,
+      }
+   }
 
-  componentDidMount() {
-    this._handlerGetAllData();
-  }
+   componentDidMount() {
+      this._handlerGetAllData();
+   }
 
-  async _handlerGetAllData() {
-    const readAllData = await getAllData();
-    this.setState({
-      listAllData: readAllData.data.data
-    });
-    console.log("CTable@_handlerGetAllData", readAllData.data.data);
-  }
+   async _handlerGetAllData() {
+      const readAllData = await getAllData();
 
-  render() {
-    const { listAllData } = this.state;
+      if (readAllData) {
+         this.setState({
+            listAllData: readAllData.data.data
+         });
+         console.log("CTable@_handlerGetAllData", readAllData.data.data);
+      }
+   }
 
-    return (
-      <div className="App">
-        <h2> PT Nutech Programing Test Rahmat Saputra</h2>
-        <CTable
-          listAllData={listAllData}
-        />
-      </div>
-    );
-  }
+   render() {
+      const { listAllData } = this.state;
+
+      return (
+         <div className="App">
+            <h2> PT Nutech Programing Test Rahmat Saputra</h2>
+            <CTable
+               listAllData={listAllData}
+            />
+         </div>
+      );
+   }
 }

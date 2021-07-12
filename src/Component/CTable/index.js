@@ -13,11 +13,20 @@ export default class CTable extends Component {
    render() {
 
       const columns = [
-         // {
-         //    title: 'ID',
-         //    field: 'id',
-         //    editable: false
-         // },
+         {
+            title: 'Product Image',
+            field: 'url_to_image',
+            render: (row) =>
+               <img
+                  src={row.url_to_image}
+                  alt=""
+                  style={{
+                     width: 40,
+                     height: 40,
+                     marginLeft: 8
+                  }}
+               />
+         },
          {
             title: 'Product Name',
             field: 'product_name'
@@ -31,7 +40,7 @@ export default class CTable extends Component {
             field: 'selling_price'
          },
          {
-            title: 'Stocl',
+            title: 'Stock',
             field: 'stock'
          }
       ];
