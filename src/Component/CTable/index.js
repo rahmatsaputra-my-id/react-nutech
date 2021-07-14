@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import MaterialTable from 'material-table';
 import React, { Component } from 'react';
-import { deleteData, postData } from '../../Helper/ActionGlobal';
+import { deleteData, createData } from '../../Helper/ActionGlobal';
 
 export default class CTable extends Component {
    constructor(props) {
@@ -10,7 +10,7 @@ export default class CTable extends Component {
       this.state = {
          listAllData: false,
          attachment: [],
-         filesUpload: false
+         showButtonFilesUploadAdd: true
       }
    }
 
@@ -25,12 +25,12 @@ export default class CTable extends Component {
       }
 
       const postTicketBodyArray = Object.values(postDataBody);
-      const result = await postData(...postTicketBodyArray);
+      const result = await createData(...postTicketBodyArray);
 
       if (result.status === 200) {
 
          this.setState({
-            filesUpload: false,
+            showButtonFilesUploadAdd: true,
             attachment: []
          })
          alert("\nProduct data saved successfully!")
@@ -41,7 +41,7 @@ export default class CTable extends Component {
             if (result.data.status.messages.user.product_name) {
 
                this.setState({
-                  filesUpload: false,
+                  showButtonFilesUploadAdd: true,
                   attachment: []
                })
                alert(`\nProduct data failed to upload!\n${result.data.status.messages.user.product_name}`)
@@ -50,13 +50,58 @@ export default class CTable extends Component {
             }
 
             this.setState({
-               filesUpload: false,
+               showButtonFilesUploadAdd: true,
                attachment: []
             })
             alert(`\nProduct data failed to upload!\n${result.data.status.messages.user}`)
 
          }
       }
+   }
+
+   async _handlerPutData(updateRowDataInput) {
+
+      // const putDataBody = {
+      //    url_to_image: updateRowDataInput[1],
+      //    product_name: updateRowDataInput[0].product_name,
+      //    purchase_price: updateRowDataInput[0].purchase_price,
+      //    selling_price: updateRowDataInput[0].selling_price,
+      //    stock: updateRowDataInput[0].stock
+      // }
+
+      // const putTicketBodyArray = Object.values(putDataBody);
+      // const result = await update(...putTicketBodyArray);
+
+      // if (result.status === 200) {
+
+      //    this.setState({
+      //       showButtonFilesUploadAdd: false,
+      //       attachment: []
+      //    })
+      //    alert("\nProduct data updated successfully!")
+
+      // } else {
+
+      //    if (result.data.status.messages.user) {
+      //       if (result.data.status.messages.user.product_name) {
+
+      //          this.setState({
+      //             showButtonFilesUploadAdd: false,
+      //             attachment: []
+      //          })
+      //          alert(`\nProduct data failed to upload!\n${result.data.status.messages.user.product_name}`)
+
+      //          return
+      //       }
+
+      //       this.setState({
+      //          showButtonFilesUploadAdd: false,
+      //          attachment: []
+      //       })
+      //       alert(`\nProduct data failed to upload!\n${result.data.status.messages.user}`)
+
+      //    }
+      // }
    }
 
    async _handlerDeleteDataById(id) {
@@ -69,7 +114,7 @@ export default class CTable extends Component {
 
    render() {
 
-      const { listAllData, attachment, filesUpload } = this.state;
+      const { listAllData, attachment, showButtonFilesUploadAdd } = this.state;
       const tableRef = React.createRef();
 
       const columns = [
@@ -81,34 +126,38 @@ export default class CTable extends Component {
 
                <div>
                   {
-                     filesUpload == [] && !filesUpload ?
-                        <Button
-                           variant="contained"
-                           component="label"
-                           style={{ fontSize: 9 }}
-                        >
-                           {"Upload Foto"}
-                           <input type="file" style={{ display: "none" }} id="input" accept=".jpg, .png"
-                              onChange={(e) => {
-                                 const fl = e.target.files[0];
-                                 const newAttachment = [...attachment]
+                     showButtonFilesUploadAdd &&
+                     <Button
+                        variant="contained"
+                        component="label"
+                        style={{ fontSize: 9 }}
+                     >
+                        {"Upload Foto"}
+                        <input type="file" style={{ display: "none" }} id="input" accept=".jpg, .png"
+                           onChange={(e) => {
+                              const fl = e.target.files[0];
+                              const newAttachment = [...attachment]
 
-                                 this.setState({ filesUpload: fl })
+                              // console.log("fl", fl);
+                              this.setState({ showButtonFilesUploadAdd: false })
 
-                                 fl && newAttachment.push(fl)
-                                 this.setState({ attachment: newAttachment[0] })
-                              }}
-                           />
-                        </Button> :
-                        <img
-                           src={"https://rahmatsaputra.my.id/public/upload_success.png"}
-                           alt=""
-                           style={{
-                              width: 130,
-                              height: 80
+                              fl && newAttachment.push(fl)
+                              this.setState({ attachment: newAttachment[0] })
                            }}
-
                         />
+                     </Button>
+                  }
+                  {
+                     !showButtonFilesUploadAdd &&
+                     <img
+                        src={"https://rahmatsaputra.my.id/public/upload_success.png"}
+                        alt=""
+                        style={{
+                           width: 130,
+                           height: 80
+                        }}
+
+                     />
                   }
                </div>
             ),
@@ -257,18 +306,57 @@ export default class CTable extends Component {
                      }, 500);
                   }),
                   onRowUpdate: (updatedRow, oldRow) => new Promise((resolve, reject) => {
+                     //looking for id
                      const index = oldRow.tableData.id;
                      const updatedRows = [...listAllData];
                      const selectedId = updatedRows[index].id;
 
-                     console.log("index", updatedRows);
+                     // console.log("index", selectedId);
+                     // console.log("updatedRow", updatedRow);
+
+
+                     // filter mandatory field from updatedRow
+                     const asArray = Object.entries(updatedRow);
+
+                     const filteringData = asArray.filter(
+                        ([key, value]) =>
+                           // key == "url_to_image" ||
+                           key == "product_name" ||
+                           key == "purchase_price" ||
+                           key == "selling_price" ||
+                           key == "stock"
+                     )
+
+                     const asObject = Object.fromEntries(filteringData);
+
+                     // console.log("result", asObject);
+
+
+
+                     // if (!asObject.url_to_image) {
+
+                     //    const newRowDataInput = [updatedRow];
+                     //    newRowDataInput.push(attachment);
+
+                     //    console.log("newRowDataInput", newRowDataInput);
+                     //    console.log("attachmentUpdate", attachment);
+
+                     // }
+
+
+
                      setTimeout(() => {
-                        this.setState({
-                           allData: updatedRows
-                        })
+                        const updateRowDataInput = [asObject];
+
+                        updateRowDataInput.push(attachment);
+                        console.log("updateRowDataInput", updateRowDataInput);
+                        // { this._handlerPutData(updateRowDataInput) }
+
                         resolve();
+                        tableRef.current && tableRef.current.onQueryChange();
+
                      }, 500);
-                     console.log("onRowUpdate", updatedRows);
+                     // console.log("onRowUpdate", updatedRows);
                   })
                }}
             />
