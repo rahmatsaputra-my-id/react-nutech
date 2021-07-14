@@ -83,10 +83,11 @@ export const deleteData = async (id) => {
    try {
       const baseUrl = "https://staging.rahmatsaputra.my.id";
       const url = baseUrl + "/v0/nutech/product/" + id;
+      const result = await Axios.delete(url);
 
-      return await Axios.delete(url);
+      return result
    } catch (error) {
-      console.log('ActionGlobal.web@updateData', error.response);
+      console.log('ActionGlobal.js@deleteData', error.response);
       return error.response;
    }
 };
