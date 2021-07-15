@@ -143,8 +143,8 @@ export default class CTable extends Component {
                         src={rowData.rowData.url_to_image}
                         alt=""
                         style={{
-                           width: 130,
-                           height: 80
+                           width: 100,
+                           height: 100
                         }}
                      />
                   }
