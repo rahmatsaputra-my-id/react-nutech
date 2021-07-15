@@ -15,7 +15,6 @@ export default class CTable extends Component {
    }
 
    async _handlerPostData(newRowDataInput) {
-      // console.log("_handlerPostData@newRowDataInput", newRowDataInput);
 
       const postDataBody = {
          url_to_image: newRowDataInput[1],
@@ -25,9 +24,7 @@ export default class CTable extends Component {
          stock: newRowDataInput[0].stock
       }
 
-      // console.log("postDataBody", postDataBody);
       const postTicketBodyArray = Object.values(postDataBody);
-      // console.log("postTicketBodyArray", ...postTicketBodyArray);
       const result = await createData(...postTicketBodyArray);
 
       if (result.status === 200) {
@@ -67,7 +64,7 @@ export default class CTable extends Component {
       console.log("_handlerPutData@updateRowDataInput", updateRowDataInput);
 
       const putDataBody = {
-         // url_to_image: updateRowDataInput[1],
+         // url_to_image: updateRowDataInput.url_to_image,
          id: updateRowDataInput.id,
          product_name: updateRowDataInput.product_name,
          purchase_price: updateRowDataInput.purchase_price,
@@ -75,7 +72,6 @@ export default class CTable extends Component {
          stock: updateRowDataInput.stock
       }
 
-      // console.log("putDataBody", putDataBody);
       const valuePutDataBody = Object.values(putDataBody);
       const result = await updateData(...valuePutDataBody);
 
@@ -278,7 +274,6 @@ export default class CTable extends Component {
                         const newRowDataInput = [newRow];
 
                         newRowDataInput.push(attachment);
-                        // console.log("newRowDataInput",newRowDataInput);
                         { this._handlerPostData(newRowDataInput) }
 
                         resolve();
@@ -305,10 +300,6 @@ export default class CTable extends Component {
                      const updatedRows = [...listAllData];
                      const selectedId = updatedRows[index].id;
 
-                     // console.log("selectedId", selectedId);
-                     // console.log("updatedRow", updatedRow);
-
-
                      // filter mandatory field from updatedRow
                      const asArray = Object.entries(updatedRow);
 
@@ -322,13 +313,7 @@ export default class CTable extends Component {
                            key == "stock"
                      )
 
-                     // console.log("filteringData",filteringData);
-
                      const asObject = Object.fromEntries(filteringData, selectedId);
-
-                     // console.log("result", asObject);
-
-
 
                      // if (!asObject.url_to_image) {
 
@@ -339,8 +324,6 @@ export default class CTable extends Component {
                      //    console.log("attachmentUpdate", attachment);
 
                      // }
-
-
 
                      setTimeout(() => {
                         // const updateRowDataInput = [asObject];
@@ -353,7 +336,6 @@ export default class CTable extends Component {
                         tableRef.current && tableRef.current.onQueryChange();
 
                      }, 1000);
-                     // console.log("onRowUpdate", updatedRows);
                   })
                }}
             />
