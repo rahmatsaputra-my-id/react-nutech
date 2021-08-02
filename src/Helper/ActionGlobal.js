@@ -2,7 +2,7 @@ import Axios from "axios";
 
 export const createData = async (url_to_image, product_name, purchase_price, selling_price, stock) => {
    try {
-      const baseUrl = "https://staging.rahmatsaputra.my.id";
+      const baseUrl = "https://api.rahmatsaputra.my.id";
       const config = {
          headers: {
             "Content-Type": "multipart/form-data; boundary=MultipartBoundry;"
@@ -29,7 +29,7 @@ export const createData = async (url_to_image, product_name, purchase_price, sel
 
 export const updateData = async (id, product_name, purchase_price, selling_price, stock) => {
    try {
-      const baseUrl = "https://staging.rahmatsaputra.my.id";
+      const baseUrl = "https://api.rahmatsaputra.my.id";
       const config = {
          headers: {
             "Content-Type": "multipart/form-data; boundary=MultipartBoundry;"
@@ -58,7 +58,7 @@ export const updateData = async (id, product_name, purchase_price, selling_price
 export const deleteData = async (id) => {
 
    try {
-      const baseUrl = "https://staging.rahmatsaputra.my.id";
+      const baseUrl = "https://api.rahmatsaputra.my.id";
       const url = baseUrl + "/v0/nutech/product/" + id;
       const result = await Axios.delete(url);
 

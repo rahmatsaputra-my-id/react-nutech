@@ -225,7 +225,7 @@ export default class CTable extends Component {
                   new Promise((resolve, reject) => {
 
                      if (query.search.length > 0) {
-                        let url = 'https://staging.rahmatsaputra.my.id/v0/nutech/product?'
+                        let url = 'https://api.rahmatsaputra.my.id/v0/nutech/product?'
                         url += 'q=' + query?.search
 
                         fetch(url)
@@ -249,7 +249,7 @@ export default class CTable extends Component {
 
                      } else {
 
-                        let url = 'https://staging.rahmatsaputra.my.id/v0/nutech/product?'
+                        let url = 'https://api.rahmatsaputra.my.id/v0/nutech/product?'
                         url += 'per_page=' + query.pageSize
                         url += '&page=' + (query.page + 1)
 
